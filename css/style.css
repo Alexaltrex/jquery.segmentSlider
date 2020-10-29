@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 20px;
+}
+
+body .your-slider {
+  border: 1px solid black;
+}
+/*# sourceMappingURL=style.css.map */

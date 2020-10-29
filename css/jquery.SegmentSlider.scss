@@ -1,0 +1,217 @@
+@keyframes arrowUp {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: -5px;
+    }
+
+    50% {
+        top: 0px;
+    }
+
+    75% {
+        top: 5px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes arrowDown {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: 5px;
+    }
+
+    50% {
+        top: 0px;
+    }
+
+    75% {
+        top: -5px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+
+.segment-slider-arrow {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    &.segment-slider-arrow-up {
+        left: -60px;
+
+        &.disable {
+            background-color: rgba(100, 100, 100, 0.5);
+            cursor: auto;
+
+            .segment-slider-arrow-inner {
+                &:before {
+                    background-color: rgb(88, 88, 88);
+                }
+
+                &:after {
+                    border-bottom: 10px solid rgb(88, 88, 88);
+                }
+            }
+
+            &:hover {
+                .segment-slider-arrow-inner {
+                    animation: none;
+                }
+            }
+        }
+
+        &:hover {
+            .segment-slider-arrow-inner {
+                animation: arrowUp .3s 2;
+
+            }
+        }
+
+        .segment-slider-arrow-inner {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:before {
+                position: absolute;
+                content: '';
+                background-color: red;
+                height: 30px;
+                width: 5px;
+                bottom: 5px;
+                left: 50%;
+                transform: translate(-50%, 0%);
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                height: 0px;
+                width: 0px;
+                border: 10px solid transparent;
+                border-bottom: 10px solid red;
+
+                left: 50%;
+                bottom: 34px;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+
+    &.segment-slider-arrow-down {
+        right: -60px;
+
+        &.disable {
+            background-color: rgba(100, 100, 100, 0.5);
+            cursor: auto;
+
+            .segment-slider-arrow-inner {
+                &:before {
+                    background-color: rgb(88, 88, 88);
+                }
+
+                &:after {
+                    border-top: 10px solid rgb(88, 88, 88);
+                }
+            }
+
+            &:hover {
+                .segment-slider-arrow-inner {
+                    animation: none;
+                }
+            }
+        }
+
+        &:hover {
+            .segment-slider-arrow-inner {
+                animation: arrowDown .3s 2;
+            }
+        }
+
+        .segment-slider-arrow-inner {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+
+            &:before {
+                position: absolute;
+                content: '';
+                background-color: red;
+                height: 30px;
+                width: 5px;
+                left: 50%;
+                top: 5px;
+                transform: translateX(-50%);
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                height: 0px;
+                width: 0px;
+                border: 10px solid transparent;
+                border-top: 10px solid red;
+
+                left: 50%;
+                top: 34px;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+.segment-slider-wrapper-middle {
+    &:hover {
+        .segment-slider-arrow {
+            &.segment-slider-arrow-up {
+                left: 20px;
+            }
+
+            &.segment-slider-arrow-down {
+                right: 20px;
+            }
+        }
+    }
+}
+
+.segment-slider-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    .segment-slider-innerline {
+        height: 100%;
+        width: 0%;
+    }
+}
